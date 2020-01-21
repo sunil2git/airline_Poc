@@ -25,7 +25,22 @@ object airLinePocData {
       .toDF("airlineName", "airlineId", "source_airport", "source_airport_id", "destination_airport", "destination_airport_id", "CodeShare", "stops", "unknown")
 
 
-    route.show()
+    val result=oddEvenCheck(3)
+    println(result)
+   // route.show()
+
 
   }
+  def  oddEvenCheck(num : Int) : Boolean   = {
+    var res = true
+    if (num % 2 == 0)
+    {
+      true
+    }
+    else
+    {
+      false
+    }
+  }
+
 }
