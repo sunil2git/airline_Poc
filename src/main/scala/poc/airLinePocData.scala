@@ -22,7 +22,7 @@ object airLinePocData {
       .toDF("id", "airportName", "city", "country", "IATA/FAA", "ICAO", "latitude", "longitde", "Altitude", "Timezone", "DST", "place")
 
     val route = spark.read.csv("/Users/acs/Documents/sparkData/airlinePocRepo/airline_Poc/src/Docs&Data/route_data")
-      .toDF("airlineName", "airlineId", "source_airport", "source_airport_id", "destination_airport", "destination_airport_id", "CodeShare", "stops", "unknown")
+      .toDF("airlineName", "airlineId", "source_airport", "source_airport_id", "destination_airport", "destination_airport_id", "CodeShare", "stops")
 
 
     route.show()
