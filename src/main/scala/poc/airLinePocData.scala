@@ -2,6 +2,7 @@ package poc
 
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.functions._
 
 object airLinePocData {
   def main(args: Array[String]): Unit = {
@@ -25,19 +26,28 @@ object airLinePocData {
       .toDF("airlineName", "airlineId", "source_airport", "source_airport_id", "destination_airport", "destination_airport_id", "CodeShare", "stops", "unknown")
 
 
-    val result=oddEvenCheck(3)
-    route.show()
+    val result = oddEvenCheck(3)
 
+    //data.groupBy(columnNames.Winner,columnNames.Stadiuam).agg(count("*").alias("cnt")).orderBy(col("cnt").desc).show()
+    val source_airportDF = route.groupBy("source_airport").agg(count("*").alias("count")).orderBy(col("count").desc)
+    val destination_airportDF = route.groupBy("destination_airport").agg(count("*").alias("count")).orderBy(col("count").desc)
+
+    val totalcount = source_airportDF.unionAll(destination_airportDF)
+
+    val totalDF=totalcount.groupBy("source_airport").agg(sum("count").alias("totalcount")).orderBy(col("totalcount").desc).limit(5)
+
+    totalDF.select("source_airport").show(truncate = false)
+
+    airportData.join(totalDF, col("IATA/FAA") === col("source_airport")).select("airportName","city","country","IATA/FAA","totalcount").show()
 
   }
-  def  oddEvenCheck(num : Int) : Boolean   = {
+
+  def oddEvenCheck(num: Int): Boolean = {
     var res = true
-    if (num % 2 == 0)
-    {
+    if (num % 2 == 0) {
       true
     }
-    else
-    {
+    else {
       false
     }
   }
