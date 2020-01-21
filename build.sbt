@@ -18,3 +18,7 @@ libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-hive" % sparkVersion,
   "mysql" % "mysql-connector-java" % "5.1.6"
 )
+
+// https://mvnrepository.com/artifact/org.scalatest/scalatest
+libraryDependencies ++= Seq("org.scalatest" %% "scalatest" % "3.0.1" % Test)
+
