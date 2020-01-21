@@ -19,4 +19,5 @@ left join airline_data a on a.Airline_id=r.airline_id
 left join airport p on p.Name = a.Name
 where r.src_airport_id in (3830,3682,3179,3830,3885,3797,3682,2241,3576) and r.dest_airport_id in (3682,3830,3885,3861,3077,507,3576,2057,3682) group by r.airline_id,a.name,p.Altitude order by cnt,p.Altitude limit 10;
 
-
+notes :
+1. route DF column source_airport is mapped in airport DF column IATA/FAA and will provide airport city name
