@@ -1,0 +1,22 @@
+Top 10 busy route
+
+SELECT src_airport_id,dest_airport_id,count(*) as cnt from route group by src_airport_id,dest_airport_id order by cnt desc limit 10;
+
+------------------------------------------------------------------------------------------------------------------------------------------
+Top 10 busy airline on top 10 busy route
+
+SELECT r.airline_id,count(*) as cnt,a.name from route r left outer join airline_data a on a.Airline_id=r.airline_id where r.src_airport_id in (3830,3682,3179,3830,3885,3797,3682,2241,3576) and r.dest_airport_id in (3682,3830,3885,3861,3077,507,3576,2057,3682) group by r.airline_id,a.name order by cnt desc limit 10;
+
+.............................................................................................................................................
+over all top 10 busy airline
+
+SELECT r.airline_id,count(*) as cnt,a.name from route r left outer join airline a on a.Airline_id=r.airline_id group by r.airline_id,a.name order by cnt desc limit 10;
+----------------------------------------------------------------------------------------------------------------------------------------------
+top 10 altitude airline
+
+SELECT r.airline_id,count(*) as cnt,a.name,p.Altitude from route r
+left join airline_data a on a.Airline_id=r.airline_id
+left join airport p on p.Name = a.Name
+where r.src_airport_id in (3830,3682,3179,3830,3885,3797,3682,2241,3576) and r.dest_airport_id in (3682,3830,3885,3861,3077,507,3576,2057,3682) group by r.airline_id,a.name,p.Altitude order by cnt,p.Altitude limit 10;
+
+
