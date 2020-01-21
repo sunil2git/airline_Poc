@@ -26,8 +26,7 @@ object airLinePocData {
 
 
     val result=oddEvenCheck(3)
-    println(result)
-   // route.show()
+    route.show()
 
 
   }

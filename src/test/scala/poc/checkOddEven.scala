@@ -10,7 +10,7 @@ import poc.airLinePocData
 class checkOddEven extends FunSuite  {
 
   test("airLinePocData.oddEvenCheck") {
-    assert(airLinePocData.oddEvenCheck(2) === false)
+    assert(airLinePocData.oddEvenCheck(2) === true)
   }
 
 
