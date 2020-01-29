@@ -76,7 +76,7 @@ object airLinePocData {
     test.createTempView("test")
 
     val test1 = spark.sql("select Distinct(*),case when t1.place1= t2.place2 and t2.place1=t1.place2 then t1.cnt + t2.cnt else 0 end as routeCount from test t1 join test t2  on t1.place1= t2.place2 and t2.place1=t1.place2").show() //
-
+     airlineData.agg(count(col("*"))).show()
 
   }
 
