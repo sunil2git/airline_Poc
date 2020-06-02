@@ -12,6 +12,26 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="sbt: antlr:antlr:2.7.7:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.joda:joda-convert:1.2:jar" level="project" />
+    <orderEntry type="library" name="sbt: commons-beanutils:commons-beanutils:1.9.3:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.twitter:jsr166e:1.1.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.datastax.spark:spark-cassandra-connector_2.11:2.3.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.yaml:snakeyaml:1.16:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.ow2.asm:asm-util:5.0.3:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.ow2.asm:asm-tree:5.0.3:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.ow2.asm:asm-commons:5.0.3:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.ow2.asm:asm-analysis:5.0.3:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.ow2.asm:asm:5.0.3:jar" level="project" />
+    <orderEntry type="library" name="sbt: net.sf.jopt-simple:jopt-simple:3.2:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.github.jnr:jnr-x86asm:1.0.2:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.github.jnr:jnr-posix:3.0.27:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.github.jnr:jnr-ffi:2.0.7:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.github.jnr:jnr-constants:0.9.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.github.jnr:jffi:1.2.10:native:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.github.jnr:jffi:1.2.10:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.datastax.spark:spark-cassandra-connector-embedded_2.11:2.3.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.datastax.cassandra:cassandra-driver-mapping:3.1.4:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.datastax.cassandra:cassandra-driver-core:3.1.4:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: org.scalatest:scalatest_2.11:3.0.1:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: org.scalactic:scalactic_2.11:3.0.1:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang.modules:scala-xml_2.11:1.0.5:jar" level="project" />
@@ -205,7 +225,6 @@
     <orderEntry type="library" name="sbt: commons-codec:commons-codec:1.10:jar" level="project" />
     <orderEntry type="library" name="sbt: commons-cli:commons-cli:1.2:jar" level="project" />
     <orderEntry type="library" name="sbt: commons-beanutils:commons-beanutils-core:1.8.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: commons-beanutils:commons-beanutils:1.7.0:jar" level="project" />
     <orderEntry type="library" name="sbt: com.vlkan:flatbuffers:1.2.0-3f79e055:jar" level="project" />
     <orderEntry type="library" name="sbt: com.univocity:univocity-parsers:2.5.9:jar" level="project" />
     <orderEntry type="library" name="sbt: com.twitter:parquet-hadoop-bundle:1.6.0:jar" level="project" />
