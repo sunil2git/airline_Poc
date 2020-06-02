@@ -1,6 +1,6 @@
 package poc.utils
 
-import org.apache.spark.sql.{DataFrame, SparkSession}
+import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}
 
 object projectUtils {
 
@@ -79,7 +79,7 @@ object projectUtils {
 
   def saveInCassandraTable(df: DataFrame) = {
     // not tested
-    //  df.write.format("org.apache.spark.sql.cassandra").options(Map("table" -> "airlinedata", "keyspace" -> "airlinepoc")).mode(SaveMode.Append).save()
+     df.write.format("org.apache.spark.sql.cassandra").options(Map("table" -> "airlinedata", "keyspace" -> "airlinepoc")).mode(SaveMode.Append).save()
   }
 
 }
