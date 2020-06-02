@@ -1,0 +1,2 @@
+COPY airlinepoc.airlinedata (id,airlineName,alias,IATA,ICAO,Callsign,country,active) FROM '/Users/acs/Documents/sparkData/airline_database/airline_data' WITH HEADER=TRUE ;
+COPY airlinepoc.airlinedata (id,airlineName,alias,IATA,ICAO,Callsign,country,active) FROM '/Users/acs/Documents/sparkData/airline_database/airline_data' WITH HEADER = TRUE ;

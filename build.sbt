@@ -18,7 +18,9 @@ libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-hive" % sparkVersion,
   "mysql" % "mysql-connector-java" % "5.1.6",
 "com.datastax.spark" %% "spark-cassandra-connector-embedded" % "2.3.0",
-  "com.datastax.spark" %% "spark-cassandra-connector" % "2.3.0"
+  "com.datastax.spark" %% "spark-cassandra-connector" % "2.3.0",
+"com.eed3si9n" %% "sbt-assembly" % "sbt0.10.0_0.6"
+
 )
 
 // https://mvnrepository.com/artifact/org.scalatest/scalatest
