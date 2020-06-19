@@ -1,37 +1,60 @@
 package poc
 
 import org.apache.log4j.{Level, Logger}
-import poc.Analytics.projectAnalytics
-import poc.utils.projectUtils
+import org.apache.spark.SparkConf
+import org.apache.spark.sql.{DataFrame, SparkSession}
+import org.apache.spark.streaming.{Seconds, StreamingContext}
+import poc.Analytics.ProjectAnalytics
+import poc.utils.ProjectUtils
+import poc.utils.ProjectUtils.sparkSession
 
 
-object airLinePocData {
+object AirLinePocData {
   def main(args: Array[String]): Unit = {
 
     Logger.getLogger("org").setLevel(Level.OFF)
     Logger.getLogger("akka").setLevel(Level.OFF)
 
-    val spark = projectUtils.sparkSession()
 
-    val airlineData = projectUtils.airlineData()
+    val conf = new SparkConf().setMaster("local[*]").setAppName("kafka-test").set("spark.cassandra.connection.host", "127.0.0.1")
+    val ssc = new StreamingContext(conf, Seconds(5))
 
-    val airportData = projectUtils.airportData()
+    val spark: SparkSession = ProjectUtils.sparkSession()
 
-    val routeData = projectUtils.routeData()
+    val airlineData: DataFrame = ProjectUtils.airlineData()
 
-    val test = projectAnalytics.busyAirport2(routeData, airportData).limit(10)
+    val routeData: DataFrame = ProjectUtils.routeData()
 
-     test.show()
+    val airportData: DataFrame = ProjectUtils.airportData()
+
+
+    val test = ProjectAnalytics.busyAirport(routeData, airportData).limit(10)
+
+
+    val configData = sparkSession().read.option("multiline", true).json("/Users/acs/Documents/sparkData/airlinePocRepo/airline_Poc/src/main/scala/poc/config.json")
+    val airlineDataPath = configData.select("airlineDataPath").collect()(0).mkString("")
+    println(airlineDataPath)
+    //airlineData.show(numRows = 5)
+
+    airportData.show(numRows = 5)
+
+
+
+    // test.show(numRows = 5)
     //projectUtils.csvWriter(test)
     println(Console.GREEN + " Data inserted ****")
+
+
+    // StreamingUtils.showStreamingData()
+
 
     /** Read Data from Cassandra Tables */
 
     // Issue in loading data in airlineData table
 
-    projectUtils.airlinDataCqlsh() //.show(numRows = 5)
-    projectUtils.routeDataCqlsh() //.show(numRows = 5)
-    projectUtils.airportDataCqlsh //.show(numRows = 5)
+    ProjectUtils.airlinDataCqlsh() //.show(numRows = 5)
+    ProjectUtils.routeDataCqlsh() //.show(numRows = 5)
+    ProjectUtils.airportDataCqlsh //.show(numRows = 5)
 
 
   }

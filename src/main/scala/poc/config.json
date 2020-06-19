@@ -1,0 +1,6 @@
+{
+  "emp": "/Users/acs/Documents/sparkData/emp.csv",
+  "airlineDataPath": "/Users/acs/Documents/sparkData/airlinePocRepo/airline_Poc/src/Docs&Data/airline_data",
+  "routeDataPath": "/Users/acs/Documents/sparkData/airlinePocRepo/airline_Poc/src/Docs&Data/route_data",
+  "airportDataPath": "/Users/acs/Documents/sparkData/airlinePocRepo/airline_Poc/src/Docs&Data/airport_data"
+}

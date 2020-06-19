@@ -1,7 +1,7 @@
 package poc.Experiments
 import org.apache.spark.sql.SparkSession
 import poc.Experiments.testPOC
-import poc.utils.columnNames
+import poc.utils.ColumnNames
 
 object utils {
 

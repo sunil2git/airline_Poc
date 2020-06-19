@@ -1,7 +1,7 @@
 package poc.utils
 
 
-object columnNames {
+object ColumnNames {
   val AIRLINE_ID = "id"
   val AIRLINE_NAME = "airlinename"
   val SOURCE_AIRPORT = "source_airport"
