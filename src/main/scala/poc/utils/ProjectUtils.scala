@@ -9,8 +9,8 @@ object ProjectUtils {
 
   /** Developer name : Sunil kumar  */
 
-
   /** Loading Data into respective dataFrames :   */
+
   val configData = sparkSession().read.option("multiline", true).json("/Users/acs/Documents/sparkData/airlinePocRepo/airline_Poc/src/main/scala/poc/config.json")
   val cassandraConfig = configData.select("cassandraConfig").collect()(0).mkString("")
 
@@ -21,14 +21,6 @@ object ProjectUtils {
     airlineData
   }
 
-  /*def routeData() = {
-    val routeDataPath = configData.select("routeDataPath").collect()(0).mkString("")
-    val columns = configData.select("routeColumns").collect()(0).mkString("")
-    val routeData = sparkSession().read.csv(routeDataPath)
-      .toDF(ColumnNames.AIRLINE_NAME, ColumnNames.AIRLINE_ID, ColumnNames.SOURCE_AIRPORT, ColumnNames.SOURCE_AIRPORT_ID, ColumnNames.DESTINATION_AIRPORT, ColumnNames.DESTINATION_AIRPORT_ID, ColumnNames.CODESHARE, ColumnNames.STOPS, ColumnNames.UNKNOWN)
-    routeData
-  }*/
-
   def routeData() = {
     val routeDataPath = configData.select("routeDataPath").collect()(0).mkString("")
     // val routeColumns = configData.select("routeColumns").collect()(0).mkString("")
@@ -36,21 +28,6 @@ object ProjectUtils {
       .toDF("airlinename", "id", "source_airport", "source_airport_id", "destination_airport", "destination_airport_id", "CodeShare", "stops", "unknown")
     routeData
   }
-
-  /* def routeData() = {
-     val routeDataPath = configData.select("routeDataPath").collect()(0).mkString("")
-     val routeColumns = configData.select("routeColumns").collect()(0).mkString("")
-     val routeData = sparkSession().read.csv(routeDataPath)
-       .toDF(routeColumns)
-     routeData
-   }*/
-
-  /*  def airportData() = {
-      val airportDataPath = configData.select("airportDataPath").collect()(0).mkString("")
-      val airportData = sparkSession().read.csv(airportDataPath)
-        .toDF("id", "airportName", "city", "country", "IATA/FAA", "ICAO", "latitude", "longitude", "Altitude", "Timezone", "DST", "place")
-      airportData
-    }*/
 
   def airportData() = {
     val airportDataPath = configData.select("airportDataPath").collect()(0).mkString("")

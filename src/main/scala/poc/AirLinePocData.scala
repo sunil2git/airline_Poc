@@ -6,7 +6,6 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 import poc.Analytics.ProjectAnalytics
 import poc.utils.ProjectUtils
-import poc.utils.ProjectUtils.sparkSession
 
 
 object AirLinePocData {
@@ -14,7 +13,6 @@ object AirLinePocData {
 
     Logger.getLogger("org").setLevel(Level.OFF)
     Logger.getLogger("akka").setLevel(Level.OFF)
-
 
     val conf = new SparkConf().setMaster("local[*]").setAppName("kafka-test").set("spark.cassandra.connection.host", "127.0.0.1")
     val ssc = new StreamingContext(conf, Seconds(5))
@@ -31,22 +29,15 @@ object AirLinePocData {
     val test = ProjectAnalytics.busyAirport(routeData, airportData).limit(10)
 
 
-    val configData = sparkSession().read.option("multiline", true).json("/Users/acs/Documents/sparkData/airlinePocRepo/airline_Poc/src/main/scala/poc/config.json")
-    val airlineDataPath = configData.select("airlineDataPath").collect()(0).mkString("")
-    println(airlineDataPath)
-    //airlineData.show(numRows = 5)
-
-    airportData.show(numRows = 5)
+    airlineData.show(numRows = 1)
+    routeData.show(numRows = 1)
+    airportData.show(numRows = 1)
 
 
-
-    // test.show(numRows = 5)
-    //projectUtils.csvWriter(test)
+    // ProjectUtils.csvWriter(airportData)
     println(Console.GREEN + " Data inserted ****")
 
-
     // StreamingUtils.showStreamingData()
-
 
     /** Read Data from Cassandra Tables */
 

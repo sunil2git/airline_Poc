@@ -18,5 +18,13 @@ object ColumnNames {
   val CALLSIGN = "callsign"
   val COUNTRY = "country"
   val ACTIVE = "active"
-
+  val AIRPORT_NAME="airportname"
+  val CITY ="city"
+  val IATA_FAA = "iata_faa"
+  val LATITUDE = "latitude"
+  val LONGITUDE = "longitude"
+  val ALTITUDE ="Altitude"
+  val TIMEZONE ="Timezone"
+  val DST ="DST"
+  val PLACE = "place"
 }
