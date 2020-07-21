@@ -26,15 +26,21 @@ object AirLinePocData {
     val airportData: DataFrame = ProjectUtils.airportData()
 
 
-    val test = ProjectAnalytics.busyAirport(routeData, airportData).limit(10)
+    val test = ProjectAnalytics.busyAirport(routeData, airportData).limit(1)
 
 
-    airlineData.show(numRows = 1)
-    routeData.show(numRows = 1)
-    airportData.show(numRows = 1)
+    val testData = routeData.limit(5)
+    //routeData.show(numRows = 5)
+    //test.show()
+    //airlineData.show(numRows = 5)
+    airlineData.filter(airlineData("airlinename") === "135 Airways")//.show(numRows = 5)
 
+//   routeData.filter(routeData("airlinename") === "Private flight").show(numRows = 5)
 
-    // ProjectUtils.csvWriter(airportData)
+    airlineData.join(routeData, airlineData("airlinename") === routeData("airlinename"))//.show(numRows = 5)
+
+    ProjectUtils.saveOutputFile(airlineData.limit(2))
+
     println(Console.GREEN + " Data inserted ****")
 
     // StreamingUtils.showStreamingData()
